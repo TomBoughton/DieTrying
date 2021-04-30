@@ -13,7 +13,7 @@ public class BattleLoop : MonoBehaviour
     private static int corruption;
     public Text TextBox;
     private bool done = true;
-    public static int enemyHealth = 3000;
+    public static int enemyHealth = 30;
     public static int battleDamage = 0;
     public static int experince = 0;
     public static int level = 0;
@@ -118,6 +118,7 @@ public class BattleLoop : MonoBehaviour
     public void EnemyTurn()
     {
         Debug.Log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+
          if (enemyHealth <= 0)
         {
           EnemyDead();  
@@ -128,6 +129,8 @@ public class BattleLoop : MonoBehaviour
             currentHealth = currentHealth - enemyDamage;
             TextBox.text = "The enemy dealt "+enemyDamage+" damage!";
             Invoke("CheckCorruption", 2);
+            
+
         }
         
        
@@ -135,6 +138,19 @@ public class BattleLoop : MonoBehaviour
 
     public void EndTurn()
     {
+        
+
+        if (currentHealth <= 0)
+        {
+            TextBox.text = "Lindza has died!! Her parasite brings her back to life, but she is now more corrupted.";
+            corruption = corruption+25;
+            Invoke("", 2);
+            if(corruption > (SharedData.tolerance*25))
+            {
+                TextBox.text = "Lindza has become too corrupted, and had to leave the battle to brew a herbal tea.";
+                Invoke("EndFight", 3);
+            }
+        }
         done = true;
         TextBox.text = "What will Lindza do?";
     }
@@ -172,6 +188,7 @@ public class BattleLoop : MonoBehaviour
     {
         SceneManager.LoadScene("Game");
     }
+
 
     public void Corrupt()
     {
