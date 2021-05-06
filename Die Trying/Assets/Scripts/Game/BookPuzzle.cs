@@ -8,57 +8,94 @@ public class BookPuzzle : MonoBehaviour
 {
 
     public Text TextBox;
-    private string[] books = {"","","","",""};
+    
+    public GameObject space1;
+    public GameObject space2;
+    public GameObject space3;
+    public GameObject space4;
+    public GameObject space5;
+    public GameObject redBook;
+    public GameObject blueBook;
+    public GameObject yellowBook;
+    public GameObject purpleBook;
+    public GameObject greenBook;
     private int x = 0;
+    public GameObject currentBook;
+    
     
 
     void Start()
     {
         TextBox.text =("There are five books here. If they are placed in the correct order, You will get the key you need.");
+        currentBook = space1;
+        
     }
 
     void Update()
     {
         if(x==5)
         {
-            string y = string.Join(", ", books);
-            TextBox.text = (y);
-            x = 0;
+            
+        }
+
+        
+        if (x == 0)
+        {
+            currentBook = space1;
+        }
+        if (x == 1)
+        {
+            currentBook = space2;
+        }
+        if (x == 2)
+        {
+            currentBook = space3;
+        }
+        if (x == 3)
+        {
+            currentBook = space4;
+        }
+        if (x == 4)
+        {
+            currentBook = space5;
         }
     }
 
     public void BlueClicked()
     {
-        books[x] = "Blue";
-        TextBox.text =(books[x]);
+        Vector2 z = currentBook.transform.position;
+        blueBook.transform.position = new Vector2(z.x,z.y);
         x++;
         
     }
 
     public void GreenClicked()
     {
-        books[x] = "Green";
-        TextBox.text =(books[x]);
+        Vector2 z = currentBook.transform.position;
+        greenBook.transform.position = new Vector2(z.x,z.y);
+   
         x++;
+  
     }
 
     public void RedClicked()
     {
-        books[x] = "Red";
-        TextBox.text =(books[x]);
+        Vector2 z = currentBook.transform.position;
+        redBook.transform.position = new Vector2(z.x,z.y);
         x++;
     }
 
     public void YellowClicked()
     {
-        books[x] = "Yellow";
-        TextBox.text =(books[x]);
+        Vector2 z = currentBook.transform.position;
+        yellowBootransform.position = new Vector2(z.x,z.y);
         x++;
     }
     public void PurpleClicked()
     {
-        books[x] = "Purple";
-        TextBox.text =(books[x]);
+        Vector2 z = currentBook.transform.position;
+        transform.position = new Vector2(z.x,z.y);
+
         x++;
     }
 }
