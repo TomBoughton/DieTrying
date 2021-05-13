@@ -7,9 +7,6 @@ public class PipePuzzle : MonoBehaviour
     
     public void Clicked()
     {
-         Quaternion theRotation = gameObject.transform.rotation;
-         theRotation.z *= 90;
-         gameObject.transform.rotation = theRotation;
         
     }
 }
