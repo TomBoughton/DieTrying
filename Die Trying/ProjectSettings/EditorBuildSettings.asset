@@ -4,5 +4,23 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 0
+    path: Assets/Scenes/Battle.unity
+    guid: bdb14e7cf22f5eb4ebffde9e4c4c1a9e
+  - enabled: 0
+    path: Assets/Scenes/Book Puzzle.unity
+    guid: c25f21639213a0a4faff611102973514
+  - enabled: 0
+    path: Assets/Scenes/Game.unity
+    guid: b1b3f17491b2a844d96003d049cf313c
+  - enabled: 0
+    path: Assets/Scenes/Main Menu.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 0
+    path: Assets/Scenes/Pipe Puzzle.unity
+    guid: 7d92455a501703f4a8c67f2f4edd5c99
+  - enabled: 0
+    path: Assets/Scenes/Pyramid Machince Puzzle.unity
+    guid: 4afc95c30035b2442af1cebdea032359
   m_configObjects: {}
