@@ -18,6 +18,9 @@ public class BattleLoop : MonoBehaviour
     public static int experince = 0;
     public static int level = 0;
     public static int mp = 0;
+    public GameObject battleScene;
+    public GameObject gameScene;
+    public GameObject lindza;
     
     // Start is called before the first frame update
     void Start()
@@ -117,7 +120,7 @@ public class BattleLoop : MonoBehaviour
 
     public void EnemyTurn()
     {
-        Debug.Log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+        
 
          if (enemyHealth <= 0)
         {
@@ -186,7 +189,10 @@ public class BattleLoop : MonoBehaviour
 
     public void EndFight()
     {
-        SceneManager.LoadScene("Game");
+        gameScene.SetActive(true);
+        battleScene.SetActive(false);
+        lindza.SetActive(true);
+        Invoke("Start", 1);
     }
 
 
@@ -208,6 +214,7 @@ public class BattleLoop : MonoBehaviour
         else
         {
             EndTurn();
+            
         }
 
         if(corruption > SharedData.tolerance*25)

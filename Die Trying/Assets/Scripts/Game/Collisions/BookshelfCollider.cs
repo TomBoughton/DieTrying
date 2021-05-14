@@ -7,7 +7,7 @@ public class BookshelfCollider : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        SceneManager.LoadScene("Book Puzzle");
+        
     }
 
 }
