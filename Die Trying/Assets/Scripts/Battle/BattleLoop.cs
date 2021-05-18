@@ -3,224 +3,143 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+
 public class BattleLoop : MonoBehaviour
 {
-    
-    public static int damageDealt = 0;
-    public static int enemyDamage = 0;
-    public static int currentHealth = 0;
-    private static int attack;
-    private static int corruption;
-    public Text TextBox;
-    private bool done = true;
-    public static int enemyHealth = 30;
-    public static int battleDamage = 0;
-    public static int experince = 0;
-    public static int level = 0;
-    public static int mp = 0;
-    public GameObject battleScene;
-    public GameObject gameScene;
-    public GameObject lindza;
-    
+    public Enemy enemy;
+    public Stats player;
+    public int currentHP;
+    public int currentMP;
+    public Text mp;
+    public Text hp;
+    public int damageDealt;
+    public int corruption;
+    public int enemyHealth;
+    public bool done;
+    public Text textbox;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        attack = SharedData.attack;
-        corruption = SharedData.corruption;
-        TextBox.text = "What will Lindza do?";
-        currentHealth = SharedData.health;
-        battleDamage = enemyHealth;
-        level = SharedData.level;
-        mp = SharedData.mp;
+        player.LoadPlayer();
+        currentHP = player.Health;
+        currentMP = player.Mana;
+        enemyHealth = enemy.enemyHealth;
+        textbox.text = "What will Lindza do?";
     }
 
     // Update is called once per frame
     void Update()
     {
+        mp.text = ""+currentMP;
+        hp.text = ""+currentHP;
 
+        
     }
 
 
 
-    public void Attack()
+    public void blAttack()
     {
-       if (done == true)
+        if(done)
         {
             done = false;
-            var x = Random.Range(1,3);
-            damageDealt = x+(attack*2)+(corruption/4);
-            enemyHealth = enemyHealth - damageDealt;
-            TextBox.text = "Lindza dealt "+damageDealt+ " damage!";
+            int x = Random.Range(1,5);
+            damageDealt = x+(player.Attack * 2)+(corruption/4);
+            enemyHealth -= damageDealt;
+            textbox.text = "Lindza attacked and dealt "+damageDealt+" damage.";
             Invoke("EnemyTurn", 2);
         }
+        
        
     }
 
     public void Ability()
     {
-
-        if (mp<3)
+        
+        if(currentMP > 3)
         {
-            TextBox.text = "Lindza does not have enough MP!";
+            if(done)
+            {
+                done = false;
+                int x = Random.Range(1,7);
+                damageDealt = x+(player.Attack * 2)+(corruption/4);
+                enemyHealth -= damageDealt;
+                textbox.text = "Lindza attacked and dealt "+damageDealt+" damage.";
+                Invoke("EnemyTurn", 2);
+            }
+        }  
+        else
+        {
+            textbox.text = "Lindza does not have enough MP to do that!";
             Invoke("EndTurn", 2);
-        }
-
-       if (done == true && mp>=3)
-        {
-            done = false;
-            var x = Random.Range(3,5);
-            damageDealt = x+(attack*2)+(corruption/4);
-            enemyHealth = enemyHealth - damageDealt;
-            TextBox.text = "Lindza dealt "+damageDealt+ " damage!";
-            mp = mp-3;
-            Invoke("EnemyTurn", 2);
-        }
-
-
-       
+        }     
     }
 
-        public void Heal()
+    public void Heal()
     {
-
-        if (mp<3)
+        if(currentMP > 3)
         {
-            TextBox.text = "Lindza does not have enough MP!";
+            if(done)
+            {
+                done = false;
+                int x = Random.Range(4,7);
+                currentHP += x;
+                textbox.text = "Lindza healed herself for "+x+" health.";
+                Invoke("EnemyTurn", 2);
+            }
+        }  
+        else
+        {
+            textbox.text = "Lindza does not have enough MP to do that!";
             Invoke("EndTurn", 2);
-        }
+        }   
 
-       if (done == true && mp>=3)
-        {
-            done = false;
-            currentHealth = currentHealth+5;
-            TextBox.text = "Lindza healed herself for 5 health!";
-            mp = mp-3;
-            Invoke("EnemyTurn", 2);
-        }
-
-
-       
     }
 
 
     public void Run()
     {
-        var x = Random.Range(1,4);
-        if (x == 3)
+        if(done)
         {
-            TextBox.text = "Lindza ran away!";
-            Invoke("EndFight", 2);
-        }
-        else
-        {
-            TextBox.text = "Lindza tries to run away, but the enemy blocks her!";
-            Invoke("EnemyTurn", 2);
-        }
-    }
-
-    public void EnemyTurn()
-    {
-        
-
-         if (enemyHealth <= 0)
-        {
-          EnemyDead();  
-        }
-        if (enemyHealth > 0)
-        {
-            enemyDamage = Random.Range(1,3);
-            currentHealth = currentHealth - enemyDamage;
-            TextBox.text = "The enemy dealt "+enemyDamage+" damage!";
-            Invoke("CheckCorruption", 2);
-            
-
-        }
-        
-       
-    }
-
-    public void EndTurn()
-    {
-        
-
-        if (currentHealth <= 0)
-        {
-            TextBox.text = "Lindza has died!! Her parasite brings her back to life, but she is now more corrupted.";
-            corruption = corruption+25;
-            Invoke("", 2);
-            if(corruption > (SharedData.tolerance*25))
+            done = false;    
+            int x = Random.Range(1,3);
+            if(x == 1;)
             {
-                TextBox.text = "Lindza has become too corrupted, and had to leave the battle to brew a herbal tea.";
-                Invoke("EndFight", 3);
+                textbox.text = "Lindza escapes!";
+                Invoke("EndBattle", 3);
+            }
+            else
+            {
+                textbox.text = "Lindza tries to run, but the enemy blocks the way.";
+                Invoke("EnemyTurn", 2);
             }
         }
-        done = true;
-        TextBox.text = "What will Lindza do?";
-    }
-    
-    public void EnemyDead()
-    {
-        TextBox.text = "The foe has been slain!";
-        Invoke("XPgain", 2);
     }
 
-    public void XPgain()
+
+    void EnemyTurn()
     {
-        SharedData.exp = battleDamage * 10;
-        experince = SharedData.exp;
-        TextBox.text = "Lindza has " +experince+" expirence points";
-        if (level * 100 <= experince)
+        if(enemyHealth <= 0)
         {
-            Invoke("LevelUp" ,2);
-        }
-        Invoke("EndFight", 2);
-
-
-        
-    }
-
-    public void LevelUp()
-    {
-        SharedData.level = SharedData.exp / 100;
-        TextBox.text = "Lindza leveled up! She is now level "+SharedData.level;
-        Invoke("EndFight", 2);
-        
-    }
-
-    public void EndFight()
-    {
-        gameScene.SetActive(true);
-        battleScene.SetActive(false);
-        lindza.SetActive(true);
-        Invoke("Start", 1);
-    }
-
-
-    public void Corrupt()
-    {
-        TextBox.text = "Lindza has died!! The parasite corrupts her.";
-        corruption = corruption+25;
-        currentHealth = SharedData.health;
-        Invoke("EndTurn", 5);
-        
-    }
-
-    public void CheckCorruption()
-    {
-         if (currentHealth <= 0)
-        {
-            Corrupt();
+            EnemyDead();
         }
         else
         {
-            EndTurn();
-            
-        }
-
-        if(corruption > SharedData.tolerance*25)
-        {
-            TextBox.text = "Lindza has become too corrupted, and is forced to flee";
-            Invoke("EndFight", 3);
+            int x = Random.Range(enemy.enemyMinHit,enemy.enemyMaxHit);
+            currentHP =- x;
+            textbox.text = "The enemy deals "+x+" damage";
+            Invoke("CheckCorruption", 2);
         }
     }
+
+    void CheckCorruption()
+    {
+
+        
+    }
+    void XP()
+    {
+        
+    }
 }
+

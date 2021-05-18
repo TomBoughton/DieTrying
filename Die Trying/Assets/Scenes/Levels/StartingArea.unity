@@ -346,7 +346,7 @@ Transform:
   - {fileID: 2057386400}
   - {fileID: 1392888562}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &165452779
 GameObject:
@@ -1154,7 +1154,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2484914530813005659, guid: cc34e7f863de4474e8e0dc174c0f115f, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2484914530813005659, guid: cc34e7f863de4474e8e0dc174c0f115f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1491,7 +1491,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2484914530813005659, guid: cc34e7f863de4474e8e0dc174c0f115f, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 2484914530813005659, guid: cc34e7f863de4474e8e0dc174c0f115f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2415,7 +2415,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2484914530813005659, guid: cc34e7f863de4474e8e0dc174c0f115f, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2484914530813005659, guid: cc34e7f863de4474e8e0dc174c0f115f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2670,7 +2670,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4866184262600054056, guid: 9ec255a3b35cbd04fb0ba0e05bb31d69, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4866184262600054056, guid: 9ec255a3b35cbd04fb0ba0e05bb31d69, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -3173,7 +3173,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4866184262600054056, guid: 9ec255a3b35cbd04fb0ba0e05bb31d69, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4866184262600054056, guid: 9ec255a3b35cbd04fb0ba0e05bb31d69, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -5550,6 +5550,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5175163344462600697, guid: 980c16bc903c07347b521ab4f87e9f4c, type: 3}
+      propertyPath: SkillPoints.BaseValue
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5959124298839695708, guid: 980c16bc903c07347b521ab4f87e9f4c, type: 3}
       propertyPath: m_Name
       value: Lindza
