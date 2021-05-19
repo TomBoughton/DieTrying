@@ -7,7 +7,7 @@ public class BattleCollision : MonoBehaviour
     public bool inTrigger;
     public GameObject battleScene;
     public GameObject gameScene;
-    public GameObject lindza;
+    public Stats lindza;
     public Granny granny;
     
     private void OnTriggerEnter(Collider other)
@@ -19,12 +19,12 @@ public class BattleCollision : MonoBehaviour
 
     void Update()
     {
-        int x = Random.Range(1,100);
+        int x = Random.Range(1,10000);
         if(inTrigger == true && x == 74 && Controller.StatsOpen == false && granny.haveCat == true)
         {
            battleScene.SetActive(true);
            gameScene.SetActive(false);
-           
+           lindza.LoadPlayer();
         }
     }
 }

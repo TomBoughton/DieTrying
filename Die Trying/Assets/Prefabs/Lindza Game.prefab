@@ -217,6 +217,7 @@ MonoBehaviour:
   lookXLimit: 60
   stats: {fileID: 4002397638182515030}
   StatsScreen: {fileID: 4605970165384561201}
+  lindza: {fileID: 4002397638182515030}
   canMove: 1
 --- !u!114 &5574733972973099228
 MonoBehaviour:

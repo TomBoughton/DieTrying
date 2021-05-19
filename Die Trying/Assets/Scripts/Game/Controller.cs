@@ -21,12 +21,13 @@ public class Controller : MonoBehaviour
     
     
     
+    
     [HideInInspector]
     public bool canMove = true;
     // Start is called before the first frame update
     void Start()
     {
-        
+        stats.LoadPlayer();
         characterController = GetComponent<CharacterController>();
         rotation.y = transform.eulerAngles.y;
     }
@@ -56,11 +57,13 @@ public class Controller : MonoBehaviour
                 StatsScreen.SetActive(false);
                 StatsOpen = false;
                 canMove = true;
+                stats.SavePlayer();
             } else
             {
                 StatsScreen.SetActive(true);
                 StatsOpen = true;
                 canMove = false;
+                stats.LoadPlayer();
             }
         }
         

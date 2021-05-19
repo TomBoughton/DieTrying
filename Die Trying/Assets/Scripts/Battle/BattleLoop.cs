@@ -17,14 +17,17 @@ public class BattleLoop : MonoBehaviour
     public int enemyHealth;
     public bool done;
     public Text textbox;
+    public GameObject battleScene;
+    public GameObject gameScene;
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
         player.LoadPlayer();
         currentHP = player.Health;
         currentMP = player.Mana;
         enemyHealth = enemy.enemyHealth;
         textbox.text = "What will Lindza do?";
+        done = true;
     }
 
     // Update is called once per frame
@@ -103,11 +106,13 @@ public class BattleLoop : MonoBehaviour
         {
             done = false;    
             int x = Random.Range(1,3);
-            if(x == 1;)
+            if(x == 1)
             {
                 textbox.text = "Lindza escapes!";
-                Invoke("EndBattle", 3);
+                Invoke("EndFight", 3);
             }
+
+
             else
             {
                 textbox.text = "Lindza tries to run, but the enemy blocks the way.";
@@ -121,12 +126,13 @@ public class BattleLoop : MonoBehaviour
     {
         if(enemyHealth <= 0)
         {
-            EnemyDead();
+            textbox.text = "The foe has been slain!";
+            Invoke("XP", 2);
         }
         else
         {
             int x = Random.Range(enemy.enemyMinHit,enemy.enemyMaxHit);
-            currentHP =- x;
+            currentHP = currentHP - x;
             textbox.text = "The enemy deals "+x+" damage";
             Invoke("CheckCorruption", 2);
         }
@@ -134,12 +140,55 @@ public class BattleLoop : MonoBehaviour
 
     void CheckCorruption()
     {
+        if(currentHP <= 0)
+        {
+            if(corruption >player.Tolerance*25)
+            {
+                textbox.text = "Lindza dies, and is too corrupted to continue fighting, and has to leave the battle";
+                EndFight();
+            }
+            else
+            {
+                corruption += 25;
+                textbox.text = "Lindza dies, but the parasite brings her back to life, but she becomes slightly corrupted.";
+                currentHP = player.Health;
+                Invoke("EndTurn", 3);
+            }
+        }
+        else
+        {
+            Invoke("EndTurn", 2);
+        }  
+    }
 
-        
+    void EndTurn()
+    {
+        textbox.text = "What will Lindza do?";
+        done = true;
+    }
+    void EndFight()
+    {
+        battleScene.SetActive(false);
+        gameScene.SetActive(true);
+        player.SavePlayer();
+        Invoke("Start", 2);
     }
     void XP()
     {
-        
+        player.Exp += enemy.expGiven;
+        if(player.Exp >= player.Level*100)
+        {
+            player.LevelUp();
+            textbox.text = "Lindza has leveled up! She is now level "+player.Level+" !";
+            Invoke("EndFight", 3);
+        }
+        else
+        {
+            textbox.text = "Lindza has gained "+enemy.expGiven+" XP!";
+            Invoke("EndFight", 3);
+        }
     }
+
+    
 }
 

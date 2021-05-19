@@ -8,11 +8,11 @@ public class Stats : MonoBehaviour
     public int Attack = 1;
     public int Defence = 1;
     public int Tolerance = 1;
-    public int Health = 10;
-    public int Mana = 10;
-    public int Level = 1;
-    public int Exp = 0;
-    public int SkillPoints = 10;
+    public int Health= 10;
+    public int Mana= 10;
+    public int Level= 1;
+    public int Exp= 0;
+    public int SkillPoints= 0;
     public Text attack;
     public Text def;
     public Text tol;
@@ -27,11 +27,12 @@ public class Stats : MonoBehaviour
     public string scene;
     public GameObject PauseScreen;
     public static bool PauseOpen = false;
+    
 
 
     void Start()
     {
-        scene = loadzone.scene;
+        LoadPlayer();
     }
     void Awake()
     {
@@ -43,12 +44,14 @@ public class Stats : MonoBehaviour
         lvl.text = ""+Level;
         xp.text = ""+Exp;
         sp.text = ""+SkillPoints;
-        
+        SavePlayer();
+        scene = loadzone.scene;
     }
     public void LevelUp()
     {
         Level++;
         SkillPoints++;
+        SavePlayer();
     }
     void Update()
     {
@@ -161,12 +164,12 @@ public class Stats : MonoBehaviour
 
 
 
-    public void SavePlayer ()
+    public void SavePlayer()
     {
         SaveSystem.SavePlayer(this);
     }
 
-    public void LoadPlayer ()
+    public void LoadPlayer()
     {
         PlayerData data = SaveSystem.LoadPlayer();
 
