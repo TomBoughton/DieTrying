@@ -23,7 +23,7 @@ public class Stats : MonoBehaviour
     public Text sp;
     public Base loadzone;
     public Granny granny;
-    public bool haveCat;
+    public bool haveCat = false;
     public string scene;
     public GameObject PauseScreen;
     public static bool PauseOpen = false;
@@ -46,6 +46,7 @@ public class Stats : MonoBehaviour
         sp.text = ""+SkillPoints;
         SavePlayer();
         scene = loadzone.scene;
+        
     }
     public void LevelUp()
     {
@@ -189,6 +190,12 @@ public class Stats : MonoBehaviour
     public void MainMenu()
     {
         SceneManager.LoadScene("MainMenu");
+    }
+
+    public void GetCat()
+    {
+        haveCat = true;
+        SavePlayer();
     }
 
 

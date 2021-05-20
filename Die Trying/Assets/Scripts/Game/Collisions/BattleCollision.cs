@@ -20,7 +20,7 @@ public class BattleCollision : MonoBehaviour
     void Update()
     {
         int x = Random.Range(1,10000);
-        if(inTrigger == true && x == 74 && Controller.StatsOpen == false && granny.haveCat == true)
+        if(inTrigger == true && x == 74 && Controller.StatsOpen == false && lindza.haveCat == true)
         {
            battleScene.SetActive(true);
            gameScene.SetActive(false);

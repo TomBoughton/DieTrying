@@ -48,10 +48,11 @@ public class Cat : MonoBehaviour
         }
         else if(x == 7)
         {
+            player.GetCat();
             textbox.SetActive(false);
-            granny.haveCat = true;
+            
             cat.SetActive(false);
-            player.SavePlayer();
+            
         }
     }
     

@@ -2777,6 +2777,10 @@ PrefabInstance:
       propertyPath: roadblock
       value: 
       objectReference: {fileID: 1262988871}
+    - target: {fileID: 3526400067413990980, guid: f8dfe0bd01136cb4c9a095a8a907bb0d, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1175945926}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8dfe0bd01136cb4c9a095a8a907bb0d, type: 3}
 --- !u!114 &919132149305793531 stripped

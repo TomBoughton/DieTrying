@@ -19,6 +19,8 @@ public class BattleLoop : MonoBehaviour
     public Text textbox;
     public GameObject battleScene;
     public GameObject gameScene;
+    public GameObject lindza;
+    public GameObject Enemy;
     // Start is called before the first frame update
     void Start()
     {
@@ -49,8 +51,10 @@ public class BattleLoop : MonoBehaviour
             int x = Random.Range(1,5);
             damageDealt = x+(player.Attack * 2)+(corruption/4);
             enemyHealth -= damageDealt;
+            lindza.GetComponent<Animator>().Play("Lindza|Knee");
             textbox.text = "Lindza attacked and dealt "+damageDealt+" damage.";
             Invoke("EnemyTurn", 2);
+            
         }
         
        
@@ -67,7 +71,9 @@ public class BattleLoop : MonoBehaviour
                 int x = Random.Range(1,7);
                 damageDealt = x+(player.Attack * 2)+(corruption/4);
                 enemyHealth -= damageDealt;
+                lindza.GetComponent<Animator>().Play("Lindza|Claws");
                 textbox.text = "Lindza attacked and dealt "+damageDealt+" damage.";
+                
                 Invoke("EnemyTurn", 2);
                 currentMP -= 3;
             }
@@ -137,8 +143,10 @@ public class BattleLoop : MonoBehaviour
         {
             int x = Random.Range(enemy.enemyMinHit,enemy.enemyMaxHit);
             currentHP = currentHP - x;
+            Enemy.GetComponent<Animator>().Play("metarig|metarigAction");
             textbox.text = "The enemy deals "+x+" damage";
             Invoke("CheckCorruption", 2);
+            
             
         }
     }

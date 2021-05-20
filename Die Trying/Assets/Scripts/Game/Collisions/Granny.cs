@@ -10,13 +10,14 @@ public class Granny : MonoBehaviour
     public bool haveCat;
     public GameObject roadblock;
     public GameObject textbox;
+    public Stats player;
     int x = 0;
 
     private void OnTriggerEnter(Collider other)
     {
         textbox.SetActive(true);
         x = 1;
-        if(haveCat == true)
+        if(player.haveCat == true)
         {
             x = 100;
         }   

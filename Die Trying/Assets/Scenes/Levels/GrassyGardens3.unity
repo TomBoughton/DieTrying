@@ -473,6 +473,10 @@ PrefabInstance:
       propertyPath: m_Center.z
       value: -0.18540093
       objectReference: {fileID: 0}
+    - target: {fileID: 1273245443710261052, guid: e4ff091d634f54d46992c80ef3f202d2, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1294161522240803091, guid: e4ff091d634f54d46992c80ef3f202d2, type: 3}
       propertyPath: scene
       value: GrassyGardenBoss
@@ -616,6 +620,10 @@ PrefabInstance:
     - target: {fileID: 1273245443710261052, guid: e4ff091d634f54d46992c80ef3f202d2, type: 3}
       propertyPath: m_Center.z
       value: -0.18540093
+      objectReference: {fileID: 0}
+    - target: {fileID: 1273245443710261052, guid: e4ff091d634f54d46992c80ef3f202d2, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1294161522240803091, guid: e4ff091d634f54d46992c80ef3f202d2, type: 3}
       propertyPath: scene
@@ -1012,7 +1020,7 @@ PrefabInstance:
     - target: {fileID: 1044051871487634059, guid: a937a563841b3b147818bab7acc857e9, type: 3}
       propertyPath: lindza
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2077926840}
     - target: {fileID: 1044051871487634059, guid: a937a563841b3b147818bab7acc857e9, type: 3}
       propertyPath: enemy
       value: 
@@ -1932,3 +1940,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 57d9a601328026c41912ad9df56e7ed9, type: 3}
+--- !u!1 &2077926840 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8484440471750214386, guid: a937a563841b3b147818bab7acc857e9, type: 3}
+  m_PrefabInstance: {fileID: 1041193670}
+  m_PrefabAsset: {fileID: 0}

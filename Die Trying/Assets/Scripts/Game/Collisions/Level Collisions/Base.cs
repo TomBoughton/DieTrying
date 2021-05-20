@@ -11,5 +11,6 @@ public class Base : MonoBehaviour
     {
         skills.SavePlayer();
         SceneManager.LoadScene(scene);
+        skills.LoadPlayer();
     }
 }
