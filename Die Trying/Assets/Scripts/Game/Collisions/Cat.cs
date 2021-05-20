@@ -10,6 +10,7 @@ public class Cat : MonoBehaviour
     public GameObject textbox;
     public Granny granny;
     public GameObject cat;
+    public Stats player;
     int x = 0;
 
     private void OnTriggerEnter(Collider other)
@@ -50,6 +51,7 @@ public class Cat : MonoBehaviour
             textbox.SetActive(false);
             granny.haveCat = true;
             cat.SetActive(false);
+            player.SavePlayer();
         }
     }
     

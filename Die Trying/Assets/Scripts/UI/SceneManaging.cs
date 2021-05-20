@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class SceneManaging : MonoBehaviour
 {
+    public Stats player;
     
     private List<string> sceneHistory = new List<string>();  
     
@@ -34,5 +35,22 @@ public class SceneManaging : MonoBehaviour
  
         return returnValue;
     }
+
+
+    public void NewGame()
+    {
+        player.SavePlayer();
+        SceneManager.LoadScene("StartingArea");
+    }
+
+    public void Load()
+    {
+        player.LoadPlayer();
+        SceneManager.LoadScene("StartingArea");
+    }
     
+    public void Exit()
+    {
+        Application.Quit();
+    }
 }

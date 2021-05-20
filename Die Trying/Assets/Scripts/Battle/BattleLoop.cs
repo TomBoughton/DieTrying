@@ -69,12 +69,14 @@ public class BattleLoop : MonoBehaviour
                 enemyHealth -= damageDealt;
                 textbox.text = "Lindza attacked and dealt "+damageDealt+" damage.";
                 Invoke("EnemyTurn", 2);
+                currentMP -= 3;
             }
         }  
         else
         {
             textbox.text = "Lindza does not have enough MP to do that!";
             Invoke("EndTurn", 2);
+            done = false;
         }     
     }
 
@@ -95,6 +97,7 @@ public class BattleLoop : MonoBehaviour
         {
             textbox.text = "Lindza does not have enough MP to do that!";
             Invoke("EndTurn", 2);
+            done = false;
         }   
 
     }
@@ -117,6 +120,7 @@ public class BattleLoop : MonoBehaviour
             {
                 textbox.text = "Lindza tries to run, but the enemy blocks the way.";
                 Invoke("EnemyTurn", 2);
+                done = false;
             }
         }
     }
@@ -135,6 +139,7 @@ public class BattleLoop : MonoBehaviour
             currentHP = currentHP - x;
             textbox.text = "The enemy deals "+x+" damage";
             Invoke("CheckCorruption", 2);
+            
         }
     }
 
@@ -145,11 +150,11 @@ public class BattleLoop : MonoBehaviour
             if(corruption >player.Tolerance*25)
             {
                 textbox.text = "Lindza dies, and is too corrupted to continue fighting, and has to leave the battle";
-                EndFight();
+                Invoke("EndFight", 4);
             }
             else
             {
-                corruption += 25;
+                corruption = corruption + 25;
                 textbox.text = "Lindza dies, but the parasite brings her back to life, but she becomes slightly corrupted.";
                 currentHP = player.Health;
                 Invoke("EndTurn", 3);
@@ -175,7 +180,7 @@ public class BattleLoop : MonoBehaviour
     }
     void XP()
     {
-        player.Exp += enemy.expGiven;
+        player.Exp = player.Exp + enemy.expGiven;
         if(player.Exp >= player.Level*100)
         {
             player.LevelUp();

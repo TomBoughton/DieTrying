@@ -285,67 +285,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 68039929}
   m_Mesh: {fileID: 289301614986012343, guid: c5e0784f58f4971449c86426370d90e5, type: 3}
---- !u!1001 &128209704
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4605970165384561201, guid: 980c16bc903c07347b521ab4f87e9f4c, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5959124298839695708, guid: 980c16bc903c07347b521ab4f87e9f4c, type: 3}
-      propertyPath: m_Name
-      value: Lindza
-      objectReference: {fileID: 0}
-    - target: {fileID: 6483177226309041126, guid: 980c16bc903c07347b521ab4f87e9f4c, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 890.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6483177226309041126, guid: 980c16bc903c07347b521ab4f87e9f4c, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 28465.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6483177226309041126, guid: 980c16bc903c07347b521ab4f87e9f4c, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 19083.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 6483177226309041126, guid: 980c16bc903c07347b521ab4f87e9f4c, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6483177226309041126, guid: 980c16bc903c07347b521ab4f87e9f4c, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 6483177226309041126, guid: 980c16bc903c07347b521ab4f87e9f4c, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6483177226309041126, guid: 980c16bc903c07347b521ab4f87e9f4c, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: -0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 6483177226309041126, guid: 980c16bc903c07347b521ab4f87e9f4c, type: 3}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6483177226309041126, guid: 980c16bc903c07347b521ab4f87e9f4c, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6483177226309041126, guid: 980c16bc903c07347b521ab4f87e9f4c, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 270
-      objectReference: {fileID: 0}
-    - target: {fileID: 6483177226309041126, guid: 980c16bc903c07347b521ab4f87e9f4c, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 980c16bc903c07347b521ab4f87e9f4c, type: 3}
 --- !u!1 &171465676
 GameObject:
   m_ObjectHideFlags: 0
@@ -1657,6 +1596,10 @@ PrefabInstance:
       propertyPath: scene
       value: GrassyGardens1
       objectReference: {fileID: 0}
+    - target: {fileID: 1294161522240803091, guid: e4ff091d634f54d46992c80ef3f202d2, type: 3}
+      propertyPath: skills
+      value: 
+      objectReference: {fileID: 1175945926}
     - target: {fileID: 6621261890375103167, guid: e4ff091d634f54d46992c80ef3f202d2, type: 3}
       propertyPath: m_Name
       value: LoadZone (1)
@@ -1806,6 +1749,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 4.8257794, y: 19.136332, z: 4.836867}
   m_Center: {x: -0.16868708, y: 6.934569, z: 0.19853613}
+--- !u!114 &1175945926 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4002397638182515030, guid: 980c16bc903c07347b521ab4f87e9f4c, type: 3}
+  m_PrefabInstance: {fileID: 1531564764}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b7715299f7d37344ac2e943fcdb47db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1190133798
 GameObject:
   m_ObjectHideFlags: 0
@@ -2251,6 +2205,63 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1454447770}
   m_Mesh: {fileID: -8678823145569952518, guid: 699e3201350d1944cb259fac23d6011f, type: 3}
+--- !u!1001 &1531564764
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5959124298839695708, guid: 980c16bc903c07347b521ab4f87e9f4c, type: 3}
+      propertyPath: m_Name
+      value: Lindza Game
+      objectReference: {fileID: 0}
+    - target: {fileID: 6483177226309041126, guid: 980c16bc903c07347b521ab4f87e9f4c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 940.1172
+      objectReference: {fileID: 0}
+    - target: {fileID: 6483177226309041126, guid: 980c16bc903c07347b521ab4f87e9f4c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 28453.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6483177226309041126, guid: 980c16bc903c07347b521ab4f87e9f4c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 19039.934
+      objectReference: {fileID: 0}
+    - target: {fileID: 6483177226309041126, guid: 980c16bc903c07347b521ab4f87e9f4c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6483177226309041126, guid: 980c16bc903c07347b521ab4f87e9f4c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 6483177226309041126, guid: 980c16bc903c07347b521ab4f87e9f4c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6483177226309041126, guid: 980c16bc903c07347b521ab4f87e9f4c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 6483177226309041126, guid: 980c16bc903c07347b521ab4f87e9f4c, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6483177226309041126, guid: 980c16bc903c07347b521ab4f87e9f4c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6483177226309041126, guid: 980c16bc903c07347b521ab4f87e9f4c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 270
+      objectReference: {fileID: 0}
+    - target: {fileID: 6483177226309041126, guid: 980c16bc903c07347b521ab4f87e9f4c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 980c16bc903c07347b521ab4f87e9f4c, type: 3}
 --- !u!1 &1616427924
 GameObject:
   m_ObjectHideFlags: 0
@@ -2740,7 +2751,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1112389043024612503, guid: f8dfe0bd01136cb4c9a095a8a907bb0d, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1112389043024612503, guid: f8dfe0bd01136cb4c9a095a8a907bb0d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2895,6 +2906,10 @@ PrefabInstance:
       propertyPath: scene
       value: StartingArea
       objectReference: {fileID: 0}
+    - target: {fileID: 1294161522240803091, guid: e4ff091d634f54d46992c80ef3f202d2, type: 3}
+      propertyPath: skills
+      value: 
+      objectReference: {fileID: 1175945926}
     - target: {fileID: 6621261890375103167, guid: e4ff091d634f54d46992c80ef3f202d2, type: 3}
       propertyPath: m_Name
       value: LoadZone

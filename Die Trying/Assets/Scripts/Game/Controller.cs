@@ -27,6 +27,7 @@ public class Controller : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         stats.LoadPlayer();
         characterController = GetComponent<CharacterController>();
         rotation.y = transform.eulerAngles.y;
@@ -35,17 +36,17 @@ public class Controller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-         if (characterController.isGrounded)
+        if(characterController.isGrounded)
         {
-            // We are grounded, so recalculate move direction based on axes
             Vector3 forward = transform.TransformDirection(Vector3.forward);
             Vector3 right = transform.TransformDirection(Vector3.right);
             float curSpeedX = canMove ? speed * Input.GetAxis("Vertical") : 0;
             float curSpeedY = canMove ? speed * Input.GetAxis("Horizontal") : 0;
             moveDirection = (forward * curSpeedX) + (right * curSpeedY);
+        }
 
            
-        }
+        
         // Move the controller
         characterController.Move(moveDirection * Time.deltaTime);
 
