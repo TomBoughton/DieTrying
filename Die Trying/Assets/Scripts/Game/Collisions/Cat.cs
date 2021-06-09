@@ -11,12 +11,14 @@ public class Cat : MonoBehaviour
     public Granny granny;
     public GameObject cat;
     public Stats player;
+    public GameObject cam;
     int x = 0;
 
     private void OnTriggerEnter(Collider other)
     {
         textbox.SetActive(true);
-        x = 1;   
+        x = 1;
+        cam.GetComponent<Controller>().enabled = false;   
     }
 
 
@@ -50,7 +52,7 @@ public class Cat : MonoBehaviour
         {
             player.GetCat();
             textbox.SetActive(false);
-            
+            cam.GetComponent<Controller>().enabled = true;
             cat.SetActive(false);
             
         }

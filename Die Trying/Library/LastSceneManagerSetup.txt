@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/Levels/GrassyGardens3.unity
+- path: Assets/Scenes/Game/Levels/GrassyGardenBoss.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0

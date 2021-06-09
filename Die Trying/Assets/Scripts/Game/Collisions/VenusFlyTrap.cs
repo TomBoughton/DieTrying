@@ -11,7 +11,7 @@ public class VenusFlyTrap : MonoBehaviour
     public Text sonText;
     public GameObject battleScene;
     public GameObject gameScene;
-    
+    public GameObject cam;
     
     public Stats lindza;
     
@@ -20,6 +20,7 @@ public class VenusFlyTrap : MonoBehaviour
     {
         textbox.SetActive(true);
         x++;
+        cam.GetComponent<Controller>().enabled = false;
         
     }
 
@@ -57,6 +58,7 @@ public class VenusFlyTrap : MonoBehaviour
             gameScene.SetActive(false);
             textbox.SetActive(false);
             lindza.LoadPlayer();
+            cam.GetComponent<Controller>().enabled = true; 
             
         }
         else if(x == 8)

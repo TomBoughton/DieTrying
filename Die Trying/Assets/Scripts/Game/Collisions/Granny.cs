@@ -11,15 +11,22 @@ public class Granny : MonoBehaviour
     public GameObject roadblock;
     public GameObject textbox;
     public Stats player;
+    public GameObject cam;
+    private bool talked = false;
     int x = 0;
 
     private void OnTriggerEnter(Collider other)
     {
         textbox.SetActive(true);
+        cam.GetComponent<Controller>().enabled = false;
         x = 1;
         if(player.haveCat == true)
         {
-            x = 100;
+            //x = 100;
+        }
+        if(talked == true)
+        {
+            x = 50;
         }   
     }
 
@@ -69,8 +76,26 @@ public class Granny : MonoBehaviour
         }
         else if(x == 11)
         {
+            talked = true;
             textbox.SetActive(false);
-            roadblock.SetActive(false);   
+            roadblock.SetActive(false);
+            cam.GetComponent<Controller>().enabled = true;   
+        }
+
+        else if(x == 50)
+        {
+            grannyText.text = "Old Lady: Have you found my cat yet?";
+        }
+        else if(x == 51)
+        {
+            grannyText.text = "You: Oh, sorry. I thought you might say something funny if I talked to you again. I'll go find your cat";
+             
+        }
+        else if(x == 52)
+        {
+            textbox.SetActive(false);
+            roadblock.SetActive(false);
+            cam.GetComponent<Controller>().enabled = true;     
         }
 
         
@@ -136,7 +161,8 @@ public class Granny : MonoBehaviour
         else if(x == 112)
         {
             textbox.SetActive(false);
-            roadblock.SetActive(false); 
+            roadblock.SetActive(false);
+            cam.GetComponent<Controller>().enabled = true;   
         }
     }
     
